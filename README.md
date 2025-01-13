@@ -58,20 +58,23 @@ You can execute the API tests using pytest with markers:
 ### **3. Cleanup Tests**
 There is a special "cleanup" marker designed for cleaning up data created during UI tests. Some data cannot be deleted directly via the UI, and these tests ensure that any leftover data is cleaned up.
 
-To run the cleanup tests, first run the UI tests:
-pytest -m "ui"
+-  To run the cleanup tests, first run the UI tests:
+  ```bash
+  pytest -m "ui"
 
-Then execute the cleanup tests:
-pytest -m "cleanup"
+-  Then execute the cleanup tests:
+  ```bash
+  pytest -m "cleanup" 
 
 ### **4. Markers**
 The project uses pytest markers to categorize and manage tests effectively. The available markers are:
 
-ui: Marks UI tests.
-api: Marks API tests.
-smoke: Marks smoke tests.
-regression: Marks regression tests.
-cleanup: Marks cleanup tests to delete data created by UI tests.
+-  ui: Marks UI tests.
+-  api: Marks API tests.
+-  smoke: Marks smoke tests.
+-  regression: Marks regression tests.
+-  cleanup: Marks cleanup tests to delete data created by UI tests.
+
 You can configure and modify these markers in the pytest.ini file.
 
 ### Installation
@@ -79,10 +82,14 @@ Prerequisites
 Python 3.x
 pip (Python package manager)
 
-Step 1: Clone the Repository
-Step 2: Set Up Python Environment
-Step 3: Install Dependencies
-TBC
+### **Step 1: Clone the Repository**
+### **Step 2: Set Up Python Environment**
+
+python -m venv venv
+
+### **Step 3: Install Dependencies**
+Install all the required Python libraries specified in the requirements.txt file.
+pip install -r requirements.txt
 
 ### Logging and Reports
 The project uses logging to capture detailed information during the execution of tests. Logs are stored in the logs/ directory and can be reviewed for debugging and analysis.
