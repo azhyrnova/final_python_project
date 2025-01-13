@@ -7,6 +7,7 @@ The **Contact List App Automation** project provides automated tests for the Con
 ## Project Structure
 
 ### 1. **Web UI Test Suite**
+
 The UI test suite is based on the **Playwright** test automation tool. It uses the Page Object Model (POM) design pattern to interact with the application. The suite includes the following page objects and test files:
 
 - **Page Objects**:
@@ -18,78 +19,92 @@ The UI test suite is based on the **Playwright** test automation tool. It uses t
   - `test_contact_list_page.py`
   - `test_home_page.py`
 
-#### To Run UI Tests:
+#### To Run UI Tests
 
 You can execute the UI tests using **pytest** with markers:
 
 - To run all UI tests:
+
   ```bash
   pytest -m "ui"
 
 - To run tests based on the scope marker (e.g., smoke, regression)
+
   ```bash
   pytest -m "smoke"
   pytest -m "regression"
 
 ### **2. API Test Suite**
+
 The API test suite is designed for testing the API endpoints of the Contact List application. The suite includes two main files:
 
 - **Test Files**:
   - `test_users.py` :Contains POST tests for Login and Logout functions.
   - `test_contacts.py`: Contains tests for creating, updating, and deleting contacts.
 
-The API documentation can be found here: https://documenter.getpostman.com/view/4012288/TzK2bEa8
+The API documentation can be found here: <https://documenter.getpostman.com/view/4012288/TzK2bEa8>
 
 - To Run API Tests:
 You can execute the API tests using pytest with markers:
 
 - To run all API tests:
+
   ```bash
   pytest -m "api"
--  To run tests based on the scope marker (e.g., smoke, regression):
+- To run tests based on the scope marker (e.g., smoke, regression):
+
   ```bash
   pytest -m "smoke"
   pytest -m "regression"
--  To run test and generate HTML report:
+- To run test and generate HTML report:
+
   ```bash
   pytest -m "smoke" --html=report.html --self-contained-html
   pytest -m "regression" --html=report.html --self-contained-html
 
 ### **3. Cleanup Tests**
+
 There is a special "cleanup" marker designed for cleaning up data created during UI tests. Some data cannot be deleted directly via the UI, and these tests ensure that any leftover data is cleaned up.
 
--  To run the cleanup tests, first run the UI tests:
+- To run the cleanup tests, first run the UI tests:
+
   ```bash
   pytest -m "ui"
 
--  Then execute the cleanup tests:
+- Then execute the cleanup tests:
+
   ```bash
   pytest -m "cleanup" 
 
 ### **4. Markers**
+
 The project uses pytest markers to categorize and manage tests effectively. The available markers are:
 
--  ui: Marks UI tests.
--  api: Marks API tests.
--  smoke: Marks smoke tests.
--  regression: Marks regression tests.
--  cleanup: Marks cleanup tests to delete data created by UI tests.
+- ui: Marks UI tests.
+- api: Marks API tests.
+- smoke: Marks smoke tests.
+- regression: Marks regression tests.
+- cleanup: Marks cleanup tests to delete data created by UI tests.
 
 You can configure and modify these markers in the pytest.ini file.
 
 ### Installation
+
 Prerequisites
 Python 3.x
 pip (Python package manager)
 
 ### **Step 1: Clone the Repository**
+
 ### **Step 2: Set Up Python Environment**
 
 python -m venv venv
 
 ### **Step 3: Install Dependencies**
+
 Install all the required Python libraries specified in the requirements.txt file.
 pip install -r requirements.txt
 
 ### Logging and Reports
+
 The project uses logging to capture detailed information during the execution of tests. Logs are stored in the logs/ directory and can be reviewed for debugging and analysis.
