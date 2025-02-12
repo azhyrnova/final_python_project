@@ -1,0 +1,32 @@
+config/config.py
+You can consider using ymal file to store environment configuration. Please see links below with some examples
+https://medium.com/@jing.wang.ds/how-to-set-the-environment-variables-from-env-yaml-file-in-python-46d0d5cc3398
+https://readmedium.com/python-yaml-configuration-with-environment-variables-parsing-77930f4273ac
+
+utils/auth_utils.py
+No need to create extra variables like LOGIN_URL (line 7)
+The method can be renamed to get_token
+You can use response.status_code == requests.codes.ok
+Consider using type hints https://docs.python.org/3/library/typing.html
+Please remove commented code
+It would be better to specify two arguments: email and password instead of login_data
+You can store messages in a variable, like, error_message = "Token not found in login response." and reuse it
+Why are you not using utils/logger.py?
+
+utils/logger.py
+All imports should be on the top of the file.
+Defaults to logging.INFO or logging.DEBUG?
+Consider using pathlib (https://docs.python.org/3/library/pathlib.html) instead of os.path for path handling
+Pay attention that you are cheking if logger.hasHandlers() has any handlersd and not file or console handlers
+
+tests/conftest.py
+It is better to create a sepaarte function to get log file name
+pytest_runtest_makereport - remember to use logging. Also use try except in case making screenshot failed. You can extract a separate function for making screenshots.
+
+tests/ui/test_contact_list_page.py
+The same comments as for https://github.com/azhyrnova/python_test_automation_book/pull/6/files#
+Also please pay attantion that you pass hardcoded valie to logger = setup_logger("ui_test_logger", log_file="logs/ui_tests.log") for file name
+
+
+for both api and use tests
+You should not create a separate test to clen up data. Each test should be independant and setup and clean data before and after the test https://docs.pytest.org/en/7.1.x/how-to/fixtures.html#yield-fixtures-recommended
